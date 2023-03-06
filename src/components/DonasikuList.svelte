@@ -1,7 +1,7 @@
 <script>
     import Modal from "./Modal.svelte";
     
-    export let donasi;
+    export let donasiku;
     let isModalOpen = false;
 
     function calculateFunded(pledged, target) {
@@ -40,7 +40,6 @@
         background-color: rgba(0, 0, 0, 0.45);
     }
 </style>
-
 <!-- popularCauses section -->
 <section id="popularcause" class="bg-gray waypoint-tigger xs-section-padding">
     <div class="container">
@@ -52,8 +51,8 @@
                     raise capital from anyone.</p>
             </div><!-- .xs-heading-title END -->
         </div><!-- .row end -->
-         {#if donasi !== undefined}
-         {#each donasi as donasie}
+         {#if donasiku !== undefined}
+         {#each donasiku as donasi}
         <div class="row">
             <div class="col-lg-4 col-md-6">
                 {#if isModalOpen === true}
@@ -69,7 +68,7 @@
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <h5 class="modal-title" id="exampleModalLabel">
-                                        {donasie.tittle}
+                                        {donasi.tittle}
                                     </h5>
                                     <button 
                                         type="button" 
@@ -85,27 +84,46 @@
                                     <form>
                                         <div class="form-group">
                                             <label for="exampleInputAmount">Amount donation</label>
-                                            <input required type="number" class="form-control" id="exampleInputAmount"
-                                                aria-describedby="amountHelp" placeholder="Enter amount">
+                                            <input 
+                                                required type="number" 
+                                                class="form-control" 
+                                                id="exampleInputAmount"
+                                                aria-describedby="amountHelp" 
+                                                placeholder="Enter amount">
                                         </div>
                                         <div class="form-group">
                                             <label for="exampleInputName">Your name</label>
-                                            <input required type="text" class="form-control" id="exampleInputName"
-                                                aria-describedby="nameHelp" placeholder="Enter full name">
+                                            <input 
+                                                required type="text" 
+                                                class="form-control" 
+                                                id="exampleInputName"
+                                                aria-describedby="nameHelp" 
+                                                placeholder="Enter full name">
                                         </div>
                                         <div class="form-group">
                                             <label for="exampleInputEmail1">Email address</label>
-                                            <input required type="email" class="form-control" id="exampleInputEmail1"
-                                                aria-describedby="emailHelp" placeholder="Enter email">
+                                            <input 
+                                                required type="email" 
+                                                class="form-control" 
+                                                id="exampleInputEmail1"
+                                                aria-describedby="emailHelp" 
+                                                placeholder="Enter email">
                                         </div>
                                         <div class="form-check">
-                                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                            <label class="form-check-label" for="exampleCheck1">I Agree</label>
+                                            <input 
+                                                type="checkbox" 
+                                                class="form-check-input" 
+                                                id="exampleCheck1">
+                                            <label 
+                                                class="form-check-label" 
+                                                for="exampleCheck1">I Agree</label>
                                         </div>
                                     </form>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-primary">Continue</button>
+                                    <button 
+                                        type="button" 
+                                        class="btn btn-primary">Continue</button>
                                 </div>
                             </div>
                         </div>
@@ -114,57 +132,57 @@
                 {/if}
                 <div class="xs-popular-item xs-box-shadow">
                     <div class="xs-item-header">
-
-                        <img src="{donasie.thumbnail}" alt="" /> <!--cari foto lain link error-->
-
+                        <img src="{donasi.thumbnail}" alt="" /> <!--cari foto lain link error-->
                         <div class="xs-skill-bar">
                             <div class="xs-skill-track">
-                                <p><span class="number-percentage-count number-percentage" data-value="90"
-                                        data-animation-duration="3500">{calculateFunded(donasie.pledged, donasie.target)}</span>%</p>
+                                <p><span 
+                                        class="number-percentage-count number-percentage" 
+                                        data-value="90"
+                                        data-animation-duration="3500">{calculateFunded(donasi.pledged, donasi.target)}</span>%</p>
                             </div>
                         </div>
                     </div><!-- .xs-item-header END -->
                     <div class="xs-item-content">
                         <ul class="xs-simple-tag xs-mb-20">
-                            <li><a href="">{donasie.category}</a></li>
+                            <li><a href="">{donasi.category}</a></li>
                         </ul>
-
-                        <a href="#" class="xs-post-title xs-mb-30">{donasie.tittle}</a>
-
+                        <a 
+                            href="#" 
+                            class="xs-post-title xs-mb-30">{donasi.tittle}</a>
                         <ul class="xs-list-with-content" >
-                            <li>{formatCurrency(donasie.pledged)}<span>Pledged</span></li>
-                            <li><span class="number-percentage-count number-percentage" data-value="90"
-                                    data-animation-duration="3500">{calculateFunded(donasie.pledged, donasie.target)}</span>% <span>Funded</span></li>
-                            <li>{calculateDaysRemaining(donasie.date_end)}<span>Days to go</span></li>
+                            <li>{formatCurrency(donasi.pledged)}<span>Pledged</span></li>
+                            <li><span 
+                                    class="number-percentage-count number-percentage" 
+                                    data-value="90"
+                                    data-animation-duration="3500">{calculateFunded(donasi.pledged, donasi.target)}</span>% <span>Funded</span></li>
+                            <li>{calculateDaysRemaining(donasi.date_end)}<span>Days to go</span></li>
                         </ul>
-
                         <span class="xs-separetor"></span>
-
                         <div class="row xs-margin-0">
                             <div class="xs-round-avatar">
-                                <img src="{donasie.profile_photo}" alt="" />
+                                <img 
+                                    src="{donasi.profile_photo}" 
+                                    alt="" />
                             </div>
                             <div class="xs-avatar-title">
-                                <a href="#"><span>By</span>{donasie.profile_name}</a>
+                                <a href="#"><span>By</span>{donasi.profile_name}</a>
                             </div>
                         </div>
-
                         <span class="xs-separetor"></span>
-
-                        <button 
-                            on:click={handleButton}
+                        <a 
+                            href="/donation/{donasi.id}"
                             data-toggle="modal" 
                             data-target="#exampleModal"
                             class="btn btn-primary btn-block">
                             Donate This Cause
-                        </button>
+                    </a>
                     </div><!-- .xs-item-content END -->
                 </div><!-- .xs-popular-item END -->
             </div>
         </div>
-    {/each}
-        {/if}
-        </div><!-- .row end -->
+        {/each}
+            {/if}
+    </div><!-- .row end -->
     <!-- .container end -->
 </section><!-- End popularCauses section -->
 

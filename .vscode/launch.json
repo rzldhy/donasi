@@ -8,7 +8,7 @@
             "type": "chrome",
             "request": "launch",
             "name": "Open index.html",
-            "file": "/Volumes/Data/Documents/Project/BWA 2023/courses project/BWA Visual Studio Code/SvelteJS - Front-End JavaScript Development Web Donasi Online/donasi/public/index.html"
+            "file": "/Volumes/Data/Documents/Project/BWA 2023/courses project/BWA Visual Studio Code/SvelteJS - Front-End JavaScript Development Web Donasi Online/Donasiku/public/index.html"
         }
     ]
 }

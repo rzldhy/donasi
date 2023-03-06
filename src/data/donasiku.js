@@ -1,5 +1,5 @@
 module.exports = {
-    donasi: [
+    donasiku: [
         {
             id: 1,
             tittle: 'First Donasi Project',
