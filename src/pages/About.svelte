@@ -53,7 +53,10 @@
 		<div class="row">
 			<div class="col-lg-11 content-center">
 				<div class="xs-heading xs-mb-100 text-center">
-					<h2 class="xs-mb-0 xs-title">We are an Globian non-profit organization that <span class="color-green">supports</span> good causes and positive change all over the world.</h2>
+					<h2 class="xs-mb-0 xs-title">We are an Globian non-profit organization that 
+						<span class="color-green">
+							supports
+						</span> good causes and positive change all over the world.</h2>
 				</div>
 			</div>
 		</div><!-- .row end -->
@@ -61,13 +64,17 @@
 			<div class="col-md-4">
 				<div class="xs-about-feature">
 					<h3>Our Mission</h3>
-					<p class="lead">The CharityPress community was named a “Top 25 Best Global Philanthropist” by Barron’s. We beat Oprah. And, Mashable named CharityPress something like that.</p>
+					<p 
+						class="lead">The CharityPress community was named a “Top 25 Best Global Philanthropist” by Barron’s. We beat Oprah. And, Mashable named CharityPress something like that.
+					</p>
 				</div>
 			</div>
 			<div class="col-md-4">
 				<div class="xs-about-feature">
 					<h3>Our Vission</h3>
-					<p class="lead">The Globian Fund for Charities seeks positive change around the world through support of non-profit organizations dedicated to social, cultural.</p>
+					<p 
+						class="lead">The Globian Fund for Charities seeks positive change around the world through support of non-profit organizations dedicated to social, cultural.
+					</p>
 				</div>
 			</div>
 			<div class="col-md-4">
@@ -89,7 +96,9 @@
 	<div class="xs-funfact-section xs-content-section-padding waypoint-tigger parallax-window" style="background-image: url('assets/images/backgrounds/parallax_1.jpg')">
 	<div class="container">
 		<div class="row col-lg-10 xs-heading mx-auto">
-			<h2 class="xs-title color-white small">Our agency has been present for over 30 years. We make the best for all our children.</h2>
+			<h2 
+				class="xs-title color-white small">Our agency has been present for over 30 years. We make the best for all our children.
+			</h2>
 		</div>
 		<div class="row">
 			<div class="col-lg-3 col-md-6">
@@ -98,8 +107,11 @@
 					<span 
 						class="number-percentage-count number-percentage" 
 						data-value="10" 
-						data-animation-duration="3500">0</span><span>M</span>
-					<small>Causes</small>
+						data-animation-duration="3500">0
+					</span><span>M</span>
+					<small>
+						Causes
+					</small>
 				</div>
 			</div>
 			<div class="col-lg-3 col-md-6">
@@ -108,7 +120,8 @@
 					<span 
 						class="number-percentage-count number-percentage" 
 						data-value="25" 
-						data-animation-duration="3500">0</span><span>k</span>
+						data-animation-duration="3500">0
+					</span><span>k</span>
 					<small>Valunteer</small>
 				</div>
 			</div>
@@ -118,8 +131,11 @@
 					<span 
 						class="number-percentage-count number-percentage" 
 						data-value="30" 
-						data-animation-duration="3500">0</span><span>k</span>
-					<small>Childrens</small>
+						data-animation-duration="3500">0
+					</span><span>k</span>
+					<small>
+						Childrens
+					</small>
 				</div>
 			</div>
 			<div class="col-lg-3 col-md-6">
@@ -128,8 +144,11 @@
 					<span 
 						class="number-percentage-count number-percentage" 
 						data-value="14" 
-						data-animation-duration="3500">0</span><span>k</span>
-					<small>Countrys</small>
+						data-animation-duration="3500">0
+					</span><span>k</span>
+					<small>
+						Countrys
+					</small>
 				</div>
 			</div>
 		</div><!-- .row end -->

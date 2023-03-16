@@ -1,4 +1,5 @@
 <script>
+    import { onMount, onDestroy, beforeUpdate, afterUpdate } from "svelte";
     import Modal from "./Modal.svelte";
     
     export let donasiku;
@@ -39,6 +40,9 @@
         display: block; 
         background-color: rgba(0, 0, 0, 0.45);
     }
+    .pledged {
+        margin-right: 2em;
+    }
 </style>
 <!-- popularCauses section -->
 <section id="popularcause" class="bg-gray waypoint-tigger xs-section-padding">
@@ -47,13 +51,13 @@
             <div class="col-md-9 col-xl-9">
                 <h2 class="xs-title">Popular Causes</h2>
                 <span class="xs-separetor dashed"></span>
-                <p>FundPress has built a platform focused on aiding entrepreneurs, startups, and <br> companies
-                    raise capital from anyone.</p>
+                <p>
+                    FundPress has built a platform focused on aiding entrepreneurs, startups, and <br> companies raise capital from anyone.
+                </p>
             </div><!-- .xs-heading-title END -->
-        </div><!-- .row end -->
-         {#if donasiku !== undefined}
-         {#each donasiku as donasi}
+        </div><!-- .row end -->         
         <div class="row">
+            {#each donasiku as donasi}
             <div class="col-lg-4 col-md-6">
                 {#if isModalOpen === true}
                 <Modal>
@@ -68,15 +72,14 @@
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <h5 class="modal-title" id="exampleModalLabel">
-                                        {donasi.tittle}
+                                        {donasi.title}
                                     </h5>
                                     <button 
                                         type="button" 
                                         class="close" 
                                         data-dismiss="modal" 
                                         aria-label="Close"
-                                        on:click={handleCloseModal}
-                                        >
+                                        on:click={handleCloseModal}>
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
@@ -144,18 +147,39 @@
                     </div><!-- .xs-item-header END -->
                     <div class="xs-item-content">
                         <ul class="xs-simple-tag xs-mb-20">
-                            <li><a href="">{donasi.category}</a></li>
+                            <li>
+                                <a href="">{donasi.category}</a>
+                            </li>
                         </ul>
                         <a 
                             href="#" 
-                            class="xs-post-title xs-mb-30">{donasi.tittle}</a>
-                        <ul class="xs-list-with-content" >
-                            <li>{formatCurrency(donasi.pledged)}<span>Pledged</span></li>
-                            <li><span 
+                            class="xs-post-title xs-mb-30">{donasi.title}
+                        </a>
+                        <ul 
+                        class="xs-list-with-content" >
+                            <li class="pledged">
+                                {formatCurrency(donasi.pledged)}
+                                <span>
+                                    Pledged
+                                </span>
+                            </li>
+                            <li>
+                                <span 
                                     class="number-percentage-count number-percentage" 
                                     data-value="90"
-                                    data-animation-duration="3500">{calculateFunded(donasi.pledged, donasi.target)}</span>% <span>Funded</span></li>
-                            <li>{calculateDaysRemaining(donasi.date_end)}<span>Days to go</span></li>
+                                    data-animation-duration="3500">
+                                    {calculateFunded(donasi.pledged, donasi.target)}
+                                </span>% 
+                                <span>
+                                    Funded
+                                </span>
+                            </li>
+                            <li>
+                                {calculateDaysRemaining(donasi.date_end)}
+                                <span>
+                                    Days to go
+                                </span>
+                            </li>
                         </ul>
                         <span class="xs-separetor"></span>
                         <div class="row xs-margin-0">
@@ -179,9 +203,8 @@
                     </div><!-- .xs-item-content END -->
                 </div><!-- .xs-popular-item END -->
             </div>
+            {/each}
         </div>
-        {/each}
-            {/if}
     </div><!-- .row end -->
     <!-- .container end -->
 </section><!-- End popularCauses section -->

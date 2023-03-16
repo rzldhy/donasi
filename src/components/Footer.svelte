@@ -11,8 +11,9 @@
                             src="/assets/images/footer_logo.png" 
                             alt="">
                     </a>
-                    <p>CharityPress online and raise money for charity and causes you’re passionate about.
-                        CharityPress is an innovative, cost-effective online.</p>
+                    <p>
+                        CharityPress online and raise money for charity and causes you’re passionate about. CharityPress is an innovative, cost-effective online.
+                    </p>
                     <ul class="xs-social-list-v2">
                         <li><a href="#" class="color-facebook"><i class="fa fa-facebook"></i></a></li>
                         <li><a href="#" class="color-twitter"><i class="fa fa-twitter"></i></a></li>
@@ -48,7 +49,9 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="xs-copyright-text">
-                        <p>&copy; Copyright 2018 Charity. - All Right's Reserved</p>
+                        <p>
+                            &copy; Copyright 2018 Charity. - All Right's Reserved
+                        </p>
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -66,7 +69,10 @@
     <div class="xs-back-to-top-wraper">
         <a 
             href="#" 
-            class="xs-back-to-top"><i 
-            class="fa fa-angle-up"></i></a>
+            class="xs-back-to-top">
+            <i 
+                class="fa fa-angle-up">
+            </i>
+        </a>
     </div>
 </footer>

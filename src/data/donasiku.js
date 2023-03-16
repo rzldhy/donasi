@@ -2,7 +2,7 @@ module.exports = {
     donasiku: [
         {
             id: 1,
-            tittle: 'First Donasi Project',
+            title: 'First Donasi Project',
             category: 'Money',
             thumbnail: 'https://live.staticflickr.com/7372/12502775644_acfd415fa7_w.jpg',
             pledged: 99000,

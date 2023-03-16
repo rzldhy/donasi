@@ -1,18 +1,28 @@
 <script>
+    import { onMount } from "svelte";
     import Header from "../components/Header.svelte";
     import Footer from "../components/Footer.svelte";
-    import { donasiku } from '../data/donasiku'
 
     export let params;
-    let data;
+    let donasi, amount, name, email, agree = false;
 
-    function getDonasi(id) {
-        return donasiku.find(function (donasi) {
-            return donasi.id == parseInt(id);
-        })
+    async function getDonasi(id) {
+        const res = await fetch(`/api/donasiku/${id}`);
+        return res.json();
     }
 
-   data = getDonasi(params.id);
+    function handleButtonClick() {
+        console.log("Button Click");
+    }
+
+    function handleForm(event) {
+        console.log("Form Submitted");
+    }
+
+    onMount(async function () {
+        donasi = await getDonasi(params.id);
+    }); 
+
 </script>
 
 <style>
@@ -35,7 +45,7 @@
 <Header />
 <!-- welcome section -->
 <!--breadcumb start here-->
-{#if data}
+{#if donasi}
 <section 
     class="xs-banner-inner-section parallax-window" 
     style="background-image:url('/assets/images/about_bg.png')">
@@ -43,7 +53,7 @@
         <div class="container">
             <div class="color-white xs-inner-banner-content">
                 <h2>Donate Now</h2>
-                <p>{data.tittle}</p>
+                <p>{donasi.title}</p>
                 <ul class="xs-breadcumb">
                     <li class="badge badge-pill badge-primary">
                         <a href="/" class="color-white">Home /</a> 
@@ -61,20 +71,21 @@
 	    <div class="col-lg-6">
 	    <div class="xs-donation-form-images">
             <img 
-                src="{data.thumbnail}" 
+                src="{donasi.thumbnail}" 
                 class="img-responsive" 
                 alt="Family Images"></div>
 	    </div>
 	    <div class="col-lg-6">
 	    <div class="xs-donation-form-wraper">
 	    <div class="xs-heading xs-mb-30">
-	        <h2 class="xs-title">{data.tittle}</h2>
+	        <h2 class="xs-title">{donasi.title}</h2>
 	        <p class="small">To learn more about make donate charity with us visit our "
                 <span class="color-green">Contact us</span>" site. By calling 
                 <span class="color-green">+44(0) 800 883 8450</span>.</p>
                 <span class="xs-separetor v2"></span>
 	    </div><!-- .xs-heading end -->
             <form 
+            on:submit|preventDefault={handleForm}
                 action="#" 
                 method="post" 
                 id="xs-donation-form" 
@@ -90,7 +101,8 @@
                             name="name" 
                             id="xs-donate-name" 
                             class="form-control"
-                            placeholder="Minimum of $5"/>
+                            bind:value={amount}
+                            placeholder="Your donation in Rupiah" />
                     </div><!-- .xs-input-group END -->
                     <div class="xs-input-group">
                         <label for="xs-donate-name">
@@ -102,6 +114,7 @@
                             name="name" 
                             id="xs-donate-name" 
                             class="form-control"
+                            bind:value={name}
                             placeholder="Your awesome name"/>
                     </div><!-- .xs-input-group END -->
                     <div class="xs-input-group">
@@ -112,6 +125,7 @@
                         <input 
                             type="text"
                             name="name" 
+                            bind:value={email}
                             id="xs-donate-name" 
                             class="form-control"
                             placeholder="email@awesome.com"/>
@@ -130,6 +144,7 @@
                     </div><!-- .xs-input-group END -->
                     <button 
                         type="submit" 
+                        on:click|once={handleButtonClick} 
                         class="btn btn-warning">
                         <span 
                             class="badge">

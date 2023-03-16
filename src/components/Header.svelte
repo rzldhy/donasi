@@ -4,7 +4,8 @@
         <nav class="xs-menus">
             <div class="nav-header">
                 <div class="nav-toggle"></div>
-                <a href="/" class="nav-logo">
+                <a 
+                    href="/" class="nav-logo">
                     <img 
                         src="/assets/images/logo.png" 
                         alt="">
@@ -21,7 +22,8 @@
                     </a>
                 </div><!-- .xs-logo-wraper END -->
                 <div class="col-lg-7">
-                    <ul class="nav-menu">
+                    <ul 
+                    class="nav-menu">
                         <li><a href="/">home</a></li>
                         <li><a href="/about">about</a></li>
                         <li><a href="/contact">Contact</a></li>
@@ -32,8 +34,12 @@
                         href="#popularcause" 
                         class="btn btn-primary">
                         <span 
-                            class="badge"><i 
-                            class="fa fa-heart"></i></span> Donate Now
+                            class="badge">
+                            <i 
+                                class="fa fa-heart">
+                             </i>
+                        </span> 
+                            Donate Now
                     </a>
                 </div><!-- .xs-navs-button END -->
             </div><!-- .nav-menus-wrapper .row END -->
