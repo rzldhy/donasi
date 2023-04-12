@@ -169,7 +169,8 @@
                                     data-value="90"
                                     data-animation-duration="3500">
                                     {calculateFunded(donasi.pledged, donasi.target)}
-                                </span>% 
+                                </span>
+                                % 
                                 <span>
                                     Funded
                                 </span>

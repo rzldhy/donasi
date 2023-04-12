@@ -7,7 +7,7 @@
     let donasi, amount, name, email, agree = false;
 
     async function getDonasi(id) {
-        const res = await fetch(`/api/donasiku/${id}`);
+        const res = await fetch(`https://bwacharity.fly.dev/charities/${id}`)
         return res.json();
     }
 
@@ -15,14 +15,28 @@
         console.log("Button Click");
     }
 
-    function handleForm(event) {
-        console.log("Form Submitted");
+    async function handleForm(event) {
+        donasi.pledged = donasi.pledged + parseInt(amount);
+        try {
+            const res = await fetch(
+                `https://bwacharity.fly.dev/charities/${params.id}`, 
+            {
+                method: "PUT",
+                headers: {
+                    "content-type": "application/json",
+                },
+                body: JSON.stringify(donasi),
+            }
+          );
+          console.log(res);
+        } catch (err) {
+          console.log(err);
+        }
     }
 
     onMount(async function () {
-        donasi = await getDonasi(params.id);
+        donasi = await getDonasi(params.id)
     }); 
-
 </script>
 
 <style>

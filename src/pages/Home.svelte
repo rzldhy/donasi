@@ -6,12 +6,12 @@
     import Promo from "../components/Promo.svelte";
     import Footer from "../components/Footer.svelte";
     
-    let title  = "Donasi";
+    let title = "Donasi";
     let donasiku = [];
 
     onMount(async function() {
-        const res =  await fetch(`/api/donasiku`);
-        donasiku = await res.json();
+        const res = await fetch('https://bwacharity.fly.dev/charities');
+        donasiku = await res.json()
     })
 </script>
 
