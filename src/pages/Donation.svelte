@@ -1,10 +1,16 @@
 <script>
-    import { onMount } from "svelte";
+    import router from 'page';
     import Header from "../components/Header.svelte";
     import Footer from "../components/Footer.svelte";
+    import Loader from '../components/Loader.svelte';
 
     export let params;
-    let donasi, amount, name, email, agree = false;
+    let donasi, 
+        amount, 
+        name, 
+        email, 
+        agree = false;
+    let data = getDonasi(params.id);
 
     async function getDonasi(id) {
         const res = await fetch(`https://bwacharity.fly.dev/charities/${id}`)
@@ -29,14 +35,12 @@
             }
           );
           console.log(res);
+          //redirection 
+          router.redirect("/success");
         } catch (err) {
           console.log(err);
         }
     }
-
-    onMount(async function () {
-        donasi = await getDonasi(params.id)
-    }); 
 </script>
 
 <style>
@@ -59,7 +63,9 @@
 <Header />
 <!-- welcome section -->
 <!--breadcumb start here-->
-{#if donasi}
+{#await data}
+    <Loader />
+{:then donasi}
 <section 
     class="xs-banner-inner-section parallax-window" 
     style="background-image:url('/assets/images/about_bg.png')">
@@ -116,6 +122,7 @@
                             id="xs-donate-name" 
                             class="form-control"
                             bind:value={amount}
+                            required="true"
                             placeholder="Your donation in Rupiah" />
                     </div><!-- .xs-input-group END -->
                     <div class="xs-input-group">
@@ -129,6 +136,7 @@
                             id="xs-donate-name" 
                             class="form-control"
                             bind:value={name}
+                            required="true"
                             placeholder="Your awesome name"/>
                     </div><!-- .xs-input-group END -->
                     <div class="xs-input-group">
@@ -137,8 +145,9 @@
                             <span class="color-light-red">**</span>
                         </label>
                         <input 
-                            type="text"
-                            name="name" 
+                            type="email"
+                            name="email"
+                            required="true" 
                             bind:value={email}
                             id="xs-donate-name" 
                             class="form-control"
@@ -150,15 +159,16 @@
                         <input 
                             type="checkbox" 
                             name="agree" 
-                            id="xs-donate-agree" />
+                            id="xs-donate-agree" 
+                            bind:checked={agree} />
                         <label for="xs-donate-agree">
                             I Agree
                             <span class="color-light-red">**</span>
                         </label>
                     </div><!-- .xs-input-group END -->
                     <button 
-                        type="submit" 
-                        on:click|once={handleButtonClick} 
+                        type="submit"
+                        disabled={!agree}
                         class="btn btn-warning">
                         <span 
                             class="badge">
@@ -173,6 +183,6 @@
 	</div><!-- .container end -->
 </section><!-- End donation form section -->
 </main><!-- footer section start -->
-{/if}
+{/await}
 
 <Footer />
