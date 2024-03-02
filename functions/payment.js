@@ -56,7 +56,7 @@ exports.handler = function(event, context, callback) {
                 }) 
             })
 
-        }). catch(function (err) {
+        }).catch(function (err) {
             console.error(`Error: ${err.message}`);
             callback(null, {
                 statusCode: 400,

@@ -34,9 +34,21 @@
                 body: JSON.stringify(donasi),
             }
           );
-          console.log(res);
-          //redirection 
-          router.redirect("/success");
+          const resMid = await fetch(`/.netlify/functions/payment`, {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+          },
+          body: JSON.stringify({
+            id: params.id,
+            amount: parseInt(amount),
+            name,
+            email,
+          }),
+        });
+            const midtransData = await resMid.json();
+            console.log(midtransData);
+            window.location.href = midtransData.url;
         } catch (err) {
           console.log(err);
         }
